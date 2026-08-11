@@ -1,0 +1,12 @@
+pandas 
+numpy
+matplotlib 
+seaborn 
+scikit-learn 
+mlflow
+statsmodels
+geopy
+pyyaml
+fastapi
+streamlit
+python-dotenv
