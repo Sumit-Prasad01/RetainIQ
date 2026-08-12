@@ -1,5 +1,14 @@
 from pathlib import Path
 
+#VISUALS
+VISUALS_PATH = Path("artifacts/visuals")
+
+ACCOUNTS_VISUALS_PATH = VISUALS_PATH / "accounts_visuals"
+ACCOUNTS_VISUALS_PATH.mkdir(parents=True, exist_ok=True)
+
+DEMOGRAPHIC_VISUALS_PATH = VISUALS_PATH / "demographic_visuals"
+DEMOGRAPHIC_VISUALS_PATH.mkdir(parents=True, exist_ok=True)
+
 #RAW DATA PATH
 RAW_DATA_DIR = Path("artifacts/raw_data")
 RAW_DATA_PATH = RAW_DATA_DIR / "banking_customer_data.xlsx"
