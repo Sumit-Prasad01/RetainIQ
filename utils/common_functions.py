@@ -20,11 +20,22 @@ def read_yaml(file_path):
         raise CustomException("Failed to read YAML File" ,e)
 
 
-def load_data(path):
+def load_csv(path):
     try:
         logger.info("Loading Data")
         return pd.read_csv(path)
     
     except Exception as e:
-        logger.info(f"Error loading the data {e}")
-        raise CustomException("Failed to load data", e)
+        logger.info(f"Error loading CSV file : {e}")
+        raise CustomException("Failed to CSV file :", e)
+
+
+
+def load_excel(path, sheet_name):
+    try:
+        logger.info("Loading Data")
+        return pd.read_excel(path, sheet_name)
+    
+    except Exception as e:
+        logger.info(f"Error loading Excel file :  {e}")
+        raise CustomException("Failed to Excel file :", e)
