@@ -12,6 +12,7 @@ from constants import (
 from utils.logger import logger
 from utils.custom_exception import CustomException
 from utils.common_functions import load_csv
+from config.settings import settings
 
 
 # LOAD DATA
@@ -26,11 +27,11 @@ logger.info(f"Loaded {len(account_df)} account records")
 
 # CREATE POSTGRESQL CONNECTION
 conn = psycopg2.connect(
-    host="localhost",
-    port=5432,
-    database="retainiq_db",
-    user="admin",
-    password="admin"
+    host = settings.POSTGRES_HOST,
+    port = settings.POSTGRES_PORT,
+    database = settings.POSTGRES_DB_NAME,
+    user = settings.POSTGRES_USER,
+    password = settings.POSTGRES_PASSWORD
 )
 
 cursor = conn.cursor()
