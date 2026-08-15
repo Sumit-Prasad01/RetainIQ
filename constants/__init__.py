@@ -26,3 +26,9 @@ LOCATION_DATA_PATH = PROCESSED_DATA_DIR / "location.csv"
 ACCOUNTS_DATA_CSV_PATH = "artifacts/processed_data/accounts.csv"           
 DEMOGRAPHIC_DATA_CSV_PATH = "artifacts/processed_data/demographic.csv"           
 LOCATION_DATA_CSV_PATH = "artifacts/processed_data/location.csv"           
+
+#EDA 
+EDA_QUERIES_PATH = Path("sql/eda_queries")
+CHURNRATE_GENDER_QUERY_PATH = EDA_QUERIES_PATH / "churnRate_across_genders.sql"
+DIFFERENCE_AVERAGE_CHURNRATE_QUERY_PATH = EDA_QUERIES_PATH / "difference_average_churnRate.sql"
+DYNAMIC_PARAMETERS_QUERY_PATH = EDA_QUERIES_PATH / "dynamic_parameters.sql"
