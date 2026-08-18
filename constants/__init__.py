@@ -1,4 +1,5 @@
 from pathlib import Path
+import os 
 
 #VISUALS
 VISUALS_PATH = Path("artifacts/visuals")
@@ -32,3 +33,8 @@ EDA_QUERIES_PATH = Path("sql/eda_queries")
 CHURNRATE_GENDER_QUERY_PATH = EDA_QUERIES_PATH / "churnRate_across_genders.sql"
 DIFFERENCE_AVERAGE_CHURNRATE_QUERY_PATH = EDA_QUERIES_PATH / "difference_average_churnRate.sql"
 DYNAMIC_PARAMETERS_QUERY_PATH = EDA_QUERIES_PATH / "dynamic_parameters.sql"
+
+# TRAIN TEST
+PROCESSED_DATA_DIR = "artifacts/processed_data"
+TRAINING_DATASET_PATH = os.path.join(PROCESSED_DATA_DIR, "train_bundle.pkl")
+TESTING_DATASET_PATH = os.path.join(PROCESSED_DATA_DIR, "test_bundle.pkl")
