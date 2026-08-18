@@ -43,7 +43,7 @@ def clean_and_save_accounts_data():
     )
 
     # Dealing with missing values
-    df['Balance'] = df['Balance'].fillna(df['Balance'].mean(), inplace = True)
+    df['Balance'].fillna(df['Balance'].mean(), inplace=True)
 
     # Remove Columns
     df = df.drop(['AccountId'], axis = 1)
