@@ -37,4 +37,6 @@ DYNAMIC_PARAMETERS_QUERY_PATH = EDA_QUERIES_PATH / "dynamic_parameters.sql"
 # TRAIN TEST
 PROCESSED_DATA_DIR = "artifacts/processed_data"
 TRAINING_DATASET_PATH = os.path.join(PROCESSED_DATA_DIR, "train_bundle.pkl")
-TESTING_DATASET_PATH = os.path.join(PROCESSED_DATA_DIR, "test_bundle.pkl")
+
+TRAIN_DATA_PATH = os.path.join("artifacts/processed_data/train_bundle.pkl")
+
