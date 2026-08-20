@@ -14,3 +14,7 @@ python-dotenv
 openpyxl
 psycopg2-binary
 lightgbm
+redis
+uvicorn[standard]
+prometheus-fastapi-instrumentator
+prometheus-client

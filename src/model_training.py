@@ -31,6 +31,15 @@ class ModelTraining:
             logger.error(f"Error while loading data: {e}")
             raise CustomException("Failed to load data", e)
 
+    def load_preprocessing_metadata(self):
+        """Return preprocessing objects saved by the data-processing step."""
+        data = joblib.load(self.data_path)
+        return {
+            key: data[key]
+            for key in ("scaler", "encoder", "numeric_features", "categorical_features")
+            if key in data
+        }
+
     def train_lgbm(self, X_train, y_train):
         try:
             logger.info("Starting LightGBM hyperparameter tuning.")
@@ -91,10 +100,13 @@ class ModelTraining:
             logger.error(f"Error during model evaluation: {e}")
             raise CustomException("Failed to evaluate model", e)
 
-    def save_model(self, model, threshold: float):
+    def save_model(self, model, threshold: float, preprocessing: dict | None = None):
         try:
             os.makedirs(os.path.dirname(self.model_output_path), exist_ok=True)
-            joblib.dump({"model": model, "threshold": threshold}, self.model_output_path)
+            joblib.dump(
+                {"model": model, "threshold": threshold, **(preprocessing or {})},
+                self.model_output_path,
+            )
             logger.info(f"Model saved to: {self.model_output_path}")
         except Exception as e:
             logger.error(f"Error while saving model: {e}")
@@ -132,7 +144,7 @@ class ModelTraining:
                 best_model.fit(X_train, y_train)
 
                 metrics = self.evaluate_model(best_model, X_test, y_test, best_threshold)
-                self.save_model(best_model, best_threshold)
+                self.save_model(best_model, best_threshold, self.load_preprocessing_metadata())
                 self.log_mlflow(best_model, best_params, cv_score, val_f1, best_threshold, metrics)
                 logger.info("Training pipeline completed successfully.")
         except Exception as e:

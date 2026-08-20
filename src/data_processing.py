@@ -5,7 +5,7 @@ import psycopg2
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 from config.settings import settings
-from constants import TESTING_DATASET_PATH, TRAINING_DATASET_PATH
+from constants import TRAINING_DATASET_PATH
 from utils.logger import logger
 
 
@@ -180,7 +180,12 @@ class BankChurnPreprocessor:
             "X_train": X_train,
             "y_train": y_train,
             "X_test": X_test,
-            "y_test": y_test
+            "y_test": y_test,
+            # Persist these so the serving API applies precisely the training transform.
+            "scaler": self.scaler,
+            "encoder": self.encoder,
+            "numeric_features": list(num_cols),
+            "categorical_features": list(cat_cols),
         }
 
         joblib.dump(

@@ -1,0 +1,26 @@
+# Environment Variables
+.env
+.env.*
+
+# Git
+.git
+.gitignore
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# Virtual Environment
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Documentation
+*.md
+*.py[cod]
+mlruns
+logs
+*.ipynb
