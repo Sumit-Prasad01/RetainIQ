@@ -40,3 +40,4 @@ TRAINING_DATASET_PATH = os.path.join(PROCESSED_DATA_DIR, "train_bundle.pkl")
 
 TRAIN_DATA_PATH = os.path.join("artifacts/processed_data/train_bundle.pkl")
 
+MODEL_OUTPUT_PATH = "artifacts/models/lgbm_model.pkl"

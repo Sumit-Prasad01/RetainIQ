@@ -13,3 +13,4 @@ streamlit
 python-dotenv
 openpyxl
 psycopg2-binary
+lightgbm
